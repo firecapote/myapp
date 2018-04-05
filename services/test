@@ -1,0 +1,12 @@
+SELECT p.id_post, p.title, p.content, p.id_user, array_agg(t.id_tag)
+FROM posts p
+INNER JOIN post_tag pt
+ON pt.id_post = p.id_post
+INNER JOIN tags t
+ON t.id_tag = pt.id_tag
+GROUP BY p.id_post, p.title;
+
+
+SELECT posts.* FROM posts JOIN post_tag USING (id_post);
+SELECT ARRAY(SELECT tags.id_tag FROM tags JOIN post_tag ON (tags.id_tag = post_tag.id_tag) WHERE post_tag.id_post = 1);
+SELECT * FROM tags WHERE name ~ 'word';
