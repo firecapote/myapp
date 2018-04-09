@@ -6,6 +6,7 @@ export const getAllPosts = (req, res) => {
             res.status(200).send(data);
         })
         .catch(function (error) {
+            console.log(error)
             res.status(400).send(error);
         })
 };

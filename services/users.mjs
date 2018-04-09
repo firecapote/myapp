@@ -12,10 +12,18 @@ export const selectPostsByUser = userId => oneOrNone(
     `SELECT * FROM posts WHERE id_user = ${userId};`
 );
 
-export const insertUser = (userAge, userName) => oneOrNone(
+export const findUser = (userEmail) => oneOrNone(
+    `SELECT id_user, email, password FROM users WHERE email = '${userEmail}';`
+);
+
+export const signUpUser = (userAge, userName, userEmail, userPassword) => oneOrNone(
     `INSERT INTO users VALUES (
-        DEFAULT, '${userName}', ${userAge}
+        DEFAULT, '${userName}', ${userAge}, '${userEmail}', '${userPassword}'
      ) RETURNING *;`
+);
+
+export const selectHash = (userEmail) => oneOrNone(
+    `SELECT password FROM users WHERE email = '${userEmail}';`
 );
 
 export const changeUser = (userId, userAge, userName) => oneOrNone(

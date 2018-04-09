@@ -9,12 +9,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser-json": "^1.9.2",
     "db-migrate": "^0.10.7",
     "db-migrate-pg": "^0.3.1",
     "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "jsonwebtoken": "^8.2.1",
+    "jws": "^3.1.4",
     "lodash": "^4.17.5",
     "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "pg-promise": "^8.2.2"
   }
 }
