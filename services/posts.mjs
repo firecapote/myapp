@@ -1,6 +1,6 @@
-import { oneOrNone } from './db-requests.mjs';
+import { manyOrNone, oneOrNone } from './db-requests.mjs';
 
-export const selectAllPosts = () => oneOrNone(
+export const selectAllPosts = () => manyOrNone(
     `SELECT p.id_post, p.title, p.content, p.id_user, array_agg(t.id_tag) as allTags
      FROM posts p
      INNER JOIN post_tag pt
@@ -21,11 +21,11 @@ export const selectPostById = postId => oneOrNone(
      HAVING p.id_post = ${postId};`
 );
 
-export const insertPost = (postTitle, postContent, userId, allTags) => oneOrNone(
+export const insertPost = (postTitle, postContent, userId, allTags) => manyOrNone(
     `INSERT INTO posts VALUES (DEFAULT, '${postTitle}', '${postContent}', ${userId}) RETURNING id_post;`
 );
 
-export const insertTagOfPost = (postId, allTags) => oneOrNone(
+export const insertTagOfPost = (postId, allTags) => manyOrNone(
     `INSERT INTO post_tag (id_post, id_tag) SELECT ${postId}, unnest(array[${allTags}]) RETURNING id_post;`
 );
 

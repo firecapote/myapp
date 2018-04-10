@@ -6,12 +6,13 @@ export const getAllPosts = (req, res) => {
             res.status(200).send(data);
         })
         .catch(function (error) {
+            console.log(error)
             res.status(400).send(error);
         })
 };
 
 export const getPostById = (req, res) => {
-    const postId = req.params.id_post;
+    const postId = req.params.postId;
 
     selectPostById(postId)
         .then(function (data) {
