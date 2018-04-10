@@ -4,12 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon --experimental-modules index.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^3.19.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-react": "^7.7.0",
+    "nodemon": "^1.17.3"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
     "body-parser-json": "^1.9.2",
     "db-migrate": "^0.10.7",
     "db-migrate-pg": "^0.3.1",

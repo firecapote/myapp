@@ -14,7 +14,7 @@ postsRouter.use((req, res, next) => {
 });
 
 postsRouter.get('/', getAllPosts);
-postsRouter.get('/:id_post', getPostById);
+postsRouter.get('/:postId', getPostById);
 
 postsRouter.delete('/', deletePost);
 

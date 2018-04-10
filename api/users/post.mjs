@@ -1,6 +1,7 @@
 import { findUser, signUpUser } from '../../services/users.mjs';
 import { passwordToSave } from "../../security/bcrypt.mjs";
 import { createToken } from "../../security/jwt.mjs";
+import { validEmail } from "../../security/valid.mjs";
 import passport from 'passport';
 
 export const signUp = (req, res) => {
@@ -11,7 +12,7 @@ export const signUp = (req, res) => {
 
     findUser(userEmail)
         .then(function (data) {
-            if(userEmail.match(/.+@.+\..+/i) === null){
+            if(validEmail(userEmail) === null){
                 res.status(200).send('Incorrect email');
             }else if(data.length !== 0){
                 res.status(200).send('This email is already taken');

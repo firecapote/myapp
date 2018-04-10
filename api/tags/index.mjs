@@ -16,7 +16,7 @@ tagsRouter.use((req, res, next) => {
 });
 
 tagsRouter.get('/', getAllTags);
-tagsRouter.get('/:id_tag', getTagById);
+tagsRouter.get('/:tagId', getTagById);
 
 tagsRouter.delete('/', deleteTag);
 

@@ -8,8 +8,8 @@ import express from 'express';
 
 var usersRouter = express.Router();
 
-usersRouter.post('/signup', signUp);
-usersRouter.post('/signin', signIn);
+usersRouter.post('/signUp', signUp);
+usersRouter.post('/signIn', signIn);
 
 usersRouter.use((req, res, next) => {
     const token = req.headers.authorization;
@@ -18,8 +18,8 @@ usersRouter.use((req, res, next) => {
 });
 
 usersRouter.get('/', getAllUsers);
-usersRouter.get('/:id_user', getUserById);
-usersRouter.get('/posts-of-user/:id_user', getPostsByUser);
+usersRouter.get('/:userId', getUserById);
+usersRouter.get('/posts-of-user/:userId', getPostsByUser);
 
 usersRouter.delete('/', deleteUser);
 

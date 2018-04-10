@@ -1,6 +1,6 @@
-import { oneOrNone } from './db-requests.mjs';
+import { manyOrNone, oneOrNone } from './db-requests.mjs';
 
-export const  selectTags = (tagFilter) => oneOrNone(
+export const  selectTags = (tagFilter) => manyOrNone(
     `SELECT * FROM tags WHERE name ~ '${tagFilter}';`
 );
 

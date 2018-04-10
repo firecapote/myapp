@@ -11,7 +11,7 @@ export const getAllUsers = (req, res) => {
 };
 
 export const getUserById = (req, res) => {
-    const userId = req.params.id_user;
+    const userId = req.params.userId;
 
     selectUserById(userId)
         .then(function (data) {
@@ -23,7 +23,7 @@ export const getUserById = (req, res) => {
 };
 
 export const getPostsByUser = (req, res) => {
-    const userId = req.params.id_user;
+    const userId = req.params.userId;
 
     selectPostsByUser(userId)
         .then(function (data) {

@@ -12,7 +12,7 @@ export const getAllPosts = (req, res) => {
 };
 
 export const getPostById = (req, res) => {
-    const postId = req.params.id_post;
+    const postId = req.params.postId;
 
     selectPostById(postId)
         .then(function (data) {

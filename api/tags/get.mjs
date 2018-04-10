@@ -1,4 +1,4 @@
-import { selectTags, selectTagById} from '../../services/tags.mjs';
+import { selectTags, selectTagById } from '../../services/tags.mjs';
 
 export const getAllTags = (req, res) => {
     const tagFilter = req.query.filter || '';
@@ -14,7 +14,7 @@ export const getAllTags = (req, res) => {
 };
 
 export const getTagById = (req, res) => {
-    const tagId = req.params.id_tag;
+    const tagId = req.params.tagId;
 
     selectTagById(tagId)
         .then(function (data) {
