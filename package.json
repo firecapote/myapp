@@ -4,8 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --experimental-modules index.mjs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node --experimental-modules index.mjs",
+    "dev": "nodemon --experimental-modules index.mjs",
+    "migrate-create": "db-migrate create",
+    "migrate-up": "db-migrate up -c",
+    "migrate-down": "db-migrate down -c"
+  },
+  "engines": {
+    "node": "9.10.0"
   },
   "author": "",
   "license": "ISC",
@@ -20,13 +26,10 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
-    "body-parser-json": "^1.9.2",
     "db-migrate": "^0.10.7",
     "db-migrate-pg": "^0.3.1",
     "express": "^4.16.3",
-    "express-session": "^1.15.6",
     "jsonwebtoken": "^8.2.1",
-    "jws": "^3.1.4",
     "lodash": "^4.17.5",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",

@@ -1,12 +1,31 @@
 module.exports = {
-    "extends": ["google"],
-    "parser": "babel-eslint",
-    "rules": {
-        "strict": 0,
-        "switch-colon-spacing": 0
-    },
     "env": {
-        "browser": true,
-        "node": true
-    }
+        "node": true,
+        "es6": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "rules": {
+        "indent": [
+            "error",
+            "tab"
+        ],
+        "linebreak-style": [
+            "error",
+            "windows"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
+    },
+    "plugins": [
+        "import"
+    ]
 };

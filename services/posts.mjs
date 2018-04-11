@@ -33,6 +33,6 @@ export const changePost = (postId, postTitle, postContent) => oneOrNone(
     `UPDATE posts SET title = '${postTitle}', content = '${postContent}' WHERE id_post = ${postId} RETURNING *;`
 );
 
-export const dropPost = (postId) => oneOrNone(
+export const dropPost = postId => oneOrNone(
     `DELETE  FROM posts WHERE id_post = ${postId};`
 );

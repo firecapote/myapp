@@ -8,7 +8,7 @@ export const signUp = (req, res) => {
     const userAge = req.body.age;
     const userName = req.body.name;
     const userEmail = req.body.email;
-    const userPassword = passwordToSave(req.body.password);
+    let userPassword = req.body.password;
 
     findUser(userEmail)
         .then(function (data) {
@@ -17,6 +17,8 @@ export const signUp = (req, res) => {
             }else if(data.length !== 0){
                 res.status(200).send('This email is already taken');
             }else{
+                userPassword = passwordToSave(userPassword);
+
                 signUpUser(userAge, userName, userEmail, userPassword)
                     .then(function (data) {
                         res.status(200).send(`User create!!!`);
